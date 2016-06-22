@@ -19764,6 +19764,12 @@ var ListManager = React.createClass({
       marginTop: 10
     };
 
+    var headingStyle = {};
+
+    if (this.props.headingColor) {
+      headingStyle.background = this.props.headingColor;
+    }
+
     //onChange is called woith every keystroke so we can store the most recent data endered
     //value is what the user sees int he input box, we point this to newItemText so it updates on every change
     return React.createElement(
@@ -19771,10 +19777,10 @@ var ListManager = React.createClass({
       { style: divStyle, className: 'col-sm-4' },
       React.createElement(
         'div',
-        { className: 'panel panel-danger' },
+        { className: 'panel panel-primary' },
         React.createElement(
           'div',
-          { className: 'panel-heading' },
+          { style: headingStyle, className: 'panel-heading' },
           React.createElement(
             'h3',
             null,
@@ -19797,7 +19803,7 @@ var ListManager = React.createClass({
               { className: 'col-sm-2' },
               React.createElement(
                 'button',
-                { className: 'btn btn-danger' },
+                { className: 'btn btn-primary' },
                 ' Add '
               )
             )
@@ -19819,6 +19825,6 @@ var ListManager = require('./components/ListManager.jsx');
 
 ReactDOM.render(React.createElement(ListManager, { title: 'Ingredients' }), document.getElementById('ingredients'));
 ReactDOM.render(React.createElement(ListManager, { title: 'ToDo' }), document.getElementById('todo'));
-ReactDOM.render(React.createElement(ListManager, { title: 'Christmas' }), document.getElementById('christmas'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Christmas', headingColor: '#b31217' }), document.getElementById('christmas'));
 
 },{"./components/ListManager.jsx":170,"react":167,"react-dom":29}]},{},[171]);

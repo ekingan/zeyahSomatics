@@ -28,12 +28,20 @@ var ListManager = React.createClass({
       marginTop: 10
     }
 
+    var headingStyle = {
+
+    }
+
+    if (this.props.headingColor) {
+      headingStyle.background = this.props.headingColor;
+    }
+
     //onChange is called woith every keystroke so we can store the most recent data endered
     //value is what the user sees int he input box, we point this to newItemText so it updates on every change
     return (
       <div style={divStyle} className='col-sm-4'>
-        <div className='panel panel-danger'>
-          <div className='panel-heading'>
+        <div className='panel panel-primary'>
+          <div style={headingStyle} className='panel-heading'>
           <h3>{this.props.title}</h3>
         </div>
         <div className='row panel-body'>
@@ -42,7 +50,7 @@ var ListManager = React.createClass({
               <input className='form-control' onChange={this.onChange} value={this.state.newItemText} />
             </div>
             <div className='col-sm-2'>
-              <button className='btn btn-danger'> Add </button>
+              <button className='btn btn-primary'> Add </button>
             </div>
           </form>
         <List items={this.state.items} />
