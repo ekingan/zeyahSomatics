@@ -28,6 +28,10 @@ var ListManager = React.createClass({
       marginTop: 10
     }
 
+    var panelStyle = {
+      marginRight: 10
+    }
+
     var headingStyle = {
 
     }
@@ -44,7 +48,7 @@ var ListManager = React.createClass({
           <div style={headingStyle} className='panel-heading'>
           <h3>{this.props.title}</h3>
         </div>
-        <div className='row panel-body'>
+        <div style={panelStyle} className='row panel-body'>
           <form onSubmit={this.handleSubmit}>
             <div className='col-sm-9'>
               <input className='form-control' onChange={this.onChange} value={this.state.newItemText} />
@@ -53,10 +57,10 @@ var ListManager = React.createClass({
               <button className='btn btn-primary'> Add </button>
             </div>
           </form>
+        </div>
+          <List items={this.state.items} />
+        </div>
       </div>
-      <List items={this.state.items} />
-    </div>
-  </div>
     );
   }
 });

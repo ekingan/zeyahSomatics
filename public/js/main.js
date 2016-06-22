@@ -19764,6 +19764,10 @@ var ListManager = React.createClass({
       marginTop: 10
     };
 
+    var panelStyle = {
+      marginRight: 10
+    };
+
     var headingStyle = {};
 
     if (this.props.headingColor) {
@@ -19789,7 +19793,7 @@ var ListManager = React.createClass({
         ),
         React.createElement(
           'div',
-          { className: 'row panel-body' },
+          { style: panelStyle, className: 'row panel-body' },
           React.createElement(
             'form',
             { onSubmit: this.handleSubmit },
@@ -19819,12 +19823,198 @@ module.exports = ListManager;
 
 },{"./List.jsx":168,"react":167}],171:[function(require,module,exports){
 var React = require('react');
+
+var LittleBox = React.createClass({
+  displayName: 'LittleBox',
+
+  render: function () {
+
+    var divStyle = {
+      color: 'white'
+
+    };
+
+    var panelStyle = {
+      height: 90,
+      border: 5
+    };
+
+    var headingStyle = {
+      height: 90
+    };
+
+    if (this.props.headingColor) {
+      headingStyle.background = this.props.headingColor;
+      panelStyle.background = this.props.panelColor;
+    }
+
+    return React.createElement(
+      'div',
+      { style: divStyle, className: 'panel' },
+      React.createElement(
+        'div',
+        { style: headingStyle, className: 'panel-heading' },
+        this.props.title,
+        React.createElement(
+          'h2',
+          null,
+          ' ',
+          this.props.subtitle
+        )
+      ),
+      React.createElement('div', { style: panelStyle, className: 'panel-body' })
+    );
+  }
+});
+
+module.exports = LittleBox;
+
+},{"react":167}],172:[function(require,module,exports){
+var React = require('react');
+
+var PlainPanel = React.createClass({
+  displayName: 'PlainPanel',
+
+  render: function () {
+
+    var divStyle = {
+      marginTop: 10,
+      color: 'white'
+
+    };
+
+    var panelStyle = {};
+
+    var headingStyle = {
+      height: 200
+    };
+
+    if (this.props.headingColor) {
+      headingStyle.background = this.props.headingColor;
+      panelStyle.background = this.props.panelColor;
+    }
+    return React.createElement(
+      'div',
+      { style: divStyle, className: 'panel' },
+      React.createElement(
+        'div',
+        { style: headingStyle, className: 'panel-heading' },
+        this.props.title
+      ),
+      React.createElement(
+        'div',
+        { style: panelStyle, className: 'panel-body' },
+        React.createElement(
+          'div',
+          { className: 'col-sm-4' },
+          React.createElement(
+            'center',
+            null,
+            React.createElement(
+              'h3',
+              null,
+              '49'
+            ),
+            'Deaths'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-sm-4' },
+          React.createElement(
+            'center',
+            null,
+            React.createElement(
+              'h3',
+              null,
+              '53'
+            ),
+            'Injured'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-sm-4' },
+          React.createElement(
+            'center',
+            null,
+            React.createElement(
+              'h3',
+              null,
+              'Millions'
+            ),
+            'Shocked'
+          )
+        )
+      )
+    );
+  }
+});
+
+module.exports = PlainPanel;
+
+},{"react":167}],173:[function(require,module,exports){
+var React = require('react');
+
+var SolidBox = React.createClass({
+  displayName: 'SolidBox',
+
+  render: function () {
+
+    var divStyle = {
+      color: 'white'
+
+    };
+
+    var panelStyle = {
+      height: 180
+    };
+
+    if (this.props.panelColor) {
+      panelStyle.background = this.props.panelColor;
+    }
+
+    return React.createElement(
+      'div',
+      { style: divStyle, className: 'panel' },
+      React.createElement(
+        'div',
+        { style: panelStyle, className: 'panel-body' },
+        React.createElement(
+          'center',
+          null,
+          React.createElement(
+            'h2',
+            null,
+            this.props.temp
+          ),
+          this.props.city
+        )
+      )
+    );
+  }
+});
+
+module.exports = SolidBox;
+
+},{"react":167}],174:[function(require,module,exports){
+var React = require('react');
 var ReactDOM = require('react-dom');
 
 var ListManager = require('./components/ListManager.jsx');
+var PlainPanel = require('./components/PlainPanel.jsx');
+var LittleBox = require('./components/LittleBox.jsx');
+var SolidBox = require('./components/SolidBox.jsx');
 
 ReactDOM.render(React.createElement(ListManager, { title: 'Ingredients' }), document.getElementById('ingredients'));
-ReactDOM.render(React.createElement(ListManager, { title: 'ToDo' }), document.getElementById('todo'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Todo' }), document.getElementById('todo'));
 ReactDOM.render(React.createElement(ListManager, { title: 'Christmas', headingColor: '#b31217' }), document.getElementById('christmas'));
+ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', headingColor: '#0099ff' }), document.getElementById('plainpanel'));
+ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', headingColor: '#ff99ff' }), document.getElementById('plainpanel2'));
+ReactDOM.render(React.createElement(SolidBox, { panelColor: '#ff6600', temp: '88 degrees', city: 'Orlando' }), document.getElementById('solidbox'));
+ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#0099ff', title: 'new visitors', subtitle: '7k' }), document.getElementById('littlebox1'));
+ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#bf80ff', title: 'happy campers', subtitle: '30' }), document.getElementById('littlebox2'));
+ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#cc3300', title: 'soup for dinner', subtitle: 'hmm, ok' }), document.getElementById('littlebox3'));
+ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#009900', title: 'take the car', subtitle: 'or bike' }), document.getElementById('littlebox4'));
 
-},{"./components/ListManager.jsx":170,"react":167,"react-dom":29}]},{},[171]);
+},{"./components/ListManager.jsx":170,"./components/LittleBox.jsx":171,"./components/PlainPanel.jsx":172,"./components/SolidBox.jsx":173,"react":167,"react-dom":29}]},{},[174]);
