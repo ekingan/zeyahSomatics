@@ -203,7 +203,7 @@ module.exports = camelizeStyleName;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 var isTextNode = require('./isTextNode');
@@ -458,7 +458,7 @@ module.exports = createNodesFromMarkup;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -1023,7 +1023,7 @@ module.exports = mapObject;
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- *
+ * 
  * @typechecks static-only
  */
 
@@ -1111,7 +1111,7 @@ module.exports = performanceNow;
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -19738,22 +19738,29 @@ var List = require('./List.jsx');
 var ListManager = React.createClass({
   displayName: 'ListManager',
 
+  //Called once in the component lift cycle - an initializer
   getInitialState: function () {
     return { items: [], newItemText: '' };
   },
   onChange: function (e) {
+    //Update the state property every time a keystroke happens
     this.setState({ newItemText: e.target.value });
   },
   handleSubmit: function (e) {
+    //stop the button from getting clicks (We are using onSubmit)
     e.preventDefault();
-
+    //Grab the current list of items
     var currentItems = this.state.items;
 
+    //Add the new item to the list
     currentItems.push(this.state.newItemText);
 
+    //Update the main item list with the new list and clear the newItemText
     this.setState({ items: currentItems, newItemText: '' });
   },
   render: function () {
+    //onChange is called woith every keystroke so we can store the most recent data endered
+    //value is what the user sees int he input box, we point this to newItemText so it updates on every change
     return React.createElement(
       'div',
       null,
