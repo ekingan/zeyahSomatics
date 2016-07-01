@@ -5,7 +5,9 @@ var ListManager = require('./components/ListManager.jsx');
 var PlainPanel = require('./components/PlainPanel.jsx');
 var LittleBox = require('./components/LittleBox.jsx');
 var SolidBox = require('./components/SolidBox.jsx');
+var FullPanel = require('./components/FullPanel.jsx');
 
+ReactDOM.render(<FullPanel title="Holistic approches to mind body healing", headingColor="blue", panelColor="purple" />, document.getElementById('header');)
 ReactDOM.render(<ListManager title="Ingredients" />, document.getElementById('ingredients'));
 ReactDOM.render(<ListManager title="Todo" />, document.getElementById('todo'));
 ReactDOM.render(<ListManager title="Christmas" headingColor="#b31217" />, document.getElementById('christmas'));
