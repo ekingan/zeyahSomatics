@@ -19834,6 +19834,5 @@ ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', heading
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#0099ff', title: 'new visitors', subtitle: '7k' }), document.getElementById('littlebox1'));
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#bf80ff', title: 'happy campers', subtitle: '30' }), document.getElementById('littlebox2'));
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#cc3300', title: 'soup for dinner', subtitle: 'hmm, ok' }), document.getElementById('littlebox3'));
-ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#009900', title: 'take the car', subtitle: 'or bike' }), document.getElementById('littlebox4'));
 
 },{"./components/LittleBox.jsx":168,"./components/PlainPanel.jsx":169,"react":167,"react-dom":29}]},{},[170]);
