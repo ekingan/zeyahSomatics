@@ -19692,137 +19692,6 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":55}],168:[function(require,module,exports){
 var React = require('react');
-var ListItem = require('./ListItem.jsx');
-
-var List = React.createClass({
-  displayName: 'List',
-
-  render: function () {
-    var createItem = function (text, index) {
-      return React.createElement(ListItem, { key: index + text, text: text });
-    };
-
-    return React.createElement(
-      'ul',
-      null,
-      this.props.items.map(createItem)
-    );
-  }
-});
-
-module.exports = List;
-
-},{"./ListItem.jsx":169,"react":167}],169:[function(require,module,exports){
-var React = require('react');
-var ListItem = React.createClass({
-  displayName: 'ListItem',
-
-  render: function () {
-    return React.createElement(
-      'li',
-      null,
-      React.createElement(
-        'h4',
-        null,
-        this.props.text
-      )
-    );
-  }
-});
-module.exports = ListItem;
-
-},{"react":167}],170:[function(require,module,exports){
-var React = require('react');
-var List = require('./List.jsx');
-
-var ListManager = React.createClass({
-  displayName: 'ListManager',
-
-  //Called once in the component lift cycle - an initializer
-  getInitialState: function () {
-    return { items: [], newItemText: '' };
-  },
-  onChange: function (e) {
-    //Update the state property every time a keystroke happens
-    this.setState({ newItemText: e.target.value });
-  },
-  handleSubmit: function (e) {
-    //stop the button from getting clicks (We are using onSubmit)
-    e.preventDefault();
-    //Grab the current list of items
-    var currentItems = this.state.items;
-
-    //Add the new item to the list
-    currentItems.push(this.state.newItemText);
-
-    //Update the main item list with the new list and clear the newItemText
-    this.setState({ items: currentItems, newItemText: '' });
-  },
-  render: function () {
-    //syle
-    var divStyle = {
-      marginTop: 10
-    };
-
-    var panelStyle = {
-      marginRight: 10
-    };
-
-    var headingStyle = {};
-
-    if (this.props.headingColor) {
-      headingStyle.background = this.props.headingColor;
-    }
-
-    //onChange is called woith every keystroke so we can store the most recent data endered
-    //value is what the user sees int he input box, we point this to newItemText so it updates on every change
-    return React.createElement(
-      'div',
-      { style: divStyle, className: 'col-sm-4' },
-      React.createElement(
-        'div',
-        { className: 'panel panel-primary' },
-        React.createElement(
-          'div',
-          { style: headingStyle, className: 'panel-heading' },
-          React.createElement(
-            'h3',
-            null,
-            this.props.title
-          )
-        ),
-        React.createElement(
-          'div',
-          { style: panelStyle, className: 'row panel-body' },
-          React.createElement(
-            'form',
-            { onSubmit: this.handleSubmit },
-            React.createElement(
-              'div',
-              { className: 'col-sm-9' },
-              React.createElement('input', { className: 'form-control', onChange: this.onChange, value: this.state.newItemText })
-            ),
-            React.createElement(
-              'div',
-              { className: 'col-sm-2' },
-              React.createElement(
-                'button',
-                { className: 'btn btn-primary' },
-                ' Add '
-              )
-            )
-          )
-        ),
-        React.createElement(List, { items: this.state.items })
-      )
-    );
-  }
-});
-
-module.exports = ListManager;
-
-},{"./List.jsx":168,"react":167}],171:[function(require,module,exports){
-var React = require('react');
 
 var LittleBox = React.createClass({
   displayName: 'LittleBox',
@@ -19869,7 +19738,7 @@ var LittleBox = React.createClass({
 
 module.exports = LittleBox;
 
-},{"react":167}],172:[function(require,module,exports){
+},{"react":167}],169:[function(require,module,exports){
 var React = require('react');
 
 var PlainPanel = React.createClass({
@@ -19953,68 +19822,18 @@ var PlainPanel = React.createClass({
 
 module.exports = PlainPanel;
 
-},{"react":167}],173:[function(require,module,exports){
-var React = require('react');
-
-var SolidBox = React.createClass({
-  displayName: 'SolidBox',
-
-  render: function () {
-
-    var divStyle = {
-      color: 'white'
-
-    };
-
-    var panelStyle = {
-      height: 180
-    };
-
-    if (this.props.panelColor) {
-      panelStyle.background = this.props.panelColor;
-    }
-
-    return React.createElement(
-      'div',
-      { style: divStyle, className: 'panel' },
-      React.createElement(
-        'div',
-        { style: panelStyle, className: 'panel-body' },
-        React.createElement(
-          'center',
-          null,
-          React.createElement(
-            'h2',
-            null,
-            this.props.temp
-          ),
-          this.props.city
-        )
-      )
-    );
-  }
-});
-
-module.exports = SolidBox;
-
-},{"react":167}],174:[function(require,module,exports){
+},{"react":167}],170:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var ListManager = require('./components/ListManager.jsx');
 var PlainPanel = require('./components/PlainPanel.jsx');
 var LittleBox = require('./components/LittleBox.jsx');
-var SolidBox = require('./components/SolidBox.jsx');
 
-ReactDOM.render(React.createElement(ListManager, { title: 'Ingredients' }), document.getElementById('ingredients'));
-ReactDOM.render(React.createElement(ListManager, { title: 'Todo' }), document.getElementById('todo'));
-ReactDOM.render(React.createElement(ListManager, { title: 'Christmas', headingColor: '#b31217' }), document.getElementById('christmas'));
 ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', headingColor: '#0099ff' }), document.getElementById('plainpanel'));
 ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', headingColor: '#ff99ff' }), document.getElementById('plainpanel2'));
-ReactDOM.render(React.createElement(SolidBox, { panelColor: '#ff6600', temp: '88 degrees', city: 'Orlando' }), document.getElementById('solidbox'));
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#0099ff', title: 'new visitors', subtitle: '7k' }), document.getElementById('littlebox1'));
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#bf80ff', title: 'happy campers', subtitle: '30' }), document.getElementById('littlebox2'));
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#cc3300', title: 'soup for dinner', subtitle: 'hmm, ok' }), document.getElementById('littlebox3'));
 ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#009900', title: 'take the car', subtitle: 'or bike' }), document.getElementById('littlebox4'));
 
-},{"./components/ListManager.jsx":170,"./components/LittleBox.jsx":171,"./components/PlainPanel.jsx":172,"./components/SolidBox.jsx":173,"react":167,"react-dom":29}]},{},[174]);
+},{"./components/LittleBox.jsx":168,"./components/PlainPanel.jsx":169,"react":167,"react-dom":29}]},{},[170]);

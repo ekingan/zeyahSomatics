@@ -1,19 +1,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var ListManager = require('./components/ListManager.jsx');
 var PlainPanel = require('./components/PlainPanel.jsx');
 var LittleBox = require('./components/LittleBox.jsx');
-var SolidBox = require('./components/SolidBox.jsx');
-var FullPanel = require('./components/FullPanel.jsx');
 
-ReactDOM.render(<FullPanel title="Holistic approches to mind body healing" headingColor="blue" panelColor="purple" />, document.getElementById('header');)
-ReactDOM.render(<ListManager title="Ingredients" />, document.getElementById('ingredients'));
-ReactDOM.render(<ListManager title="Todo" />, document.getElementById('todo'));
-ReactDOM.render(<ListManager title="Christmas" headingColor="#b31217" />, document.getElementById('christmas'));
+
 ReactDOM.render(<PlainPanel panelColor="#1e3d7b" headingColor="#0099ff" />, document.getElementById('plainpanel'));
 ReactDOM.render(<PlainPanel panelColor="#1e3d7b" headingColor="#ff99ff" />, document.getElementById('plainpanel2'));
-ReactDOM.render(<SolidBox panelColor="#ff6600" temp="88 degrees" city="Orlando" />, document.getElementById('solidbox'));
 ReactDOM.render(<LittleBox panelColor='white' headingColor="#0099ff" title="new visitors" subtitle="7k" />, document.getElementById('littlebox1'));
 ReactDOM.render(<LittleBox panelColor='white' headingColor="#bf80ff" title="happy campers" subtitle="30" />, document.getElementById('littlebox2'));
 ReactDOM.render(<LittleBox panelColor='white' headingColor="#cc3300" title="soup for dinner" subtitle="hmm, ok" />, document.getElementById('littlebox3'));
