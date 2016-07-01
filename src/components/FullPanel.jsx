@@ -35,10 +35,7 @@ var FullPanel = React.createClass({
         	{this.props.title}
         </div>
         <div style={panelStyle} className='panel-body'>
-        	<div className='col-sm-12'> 
-        		<left>
-        		  // <img src={imageStyle}>	
-        		</left>	
+        	<div className='col-sm-12'> 	
         </div>	
       </div>
      
