@@ -1,12 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var PlainPanel = require('./components/PlainPanel.jsx');
-var LittleBox = require('./components/LittleBox.jsx');
+var Fullpanel = require('./components/Fullpanel.jsx');
+var Smallbox = require('./components/Smallbox.jsx');
 
-
-ReactDOM.render(<PlainPanel panelColor="#1e3d7b" headingColor="#0099ff" />, document.getElementById('plainpanel'));
-ReactDOM.render(<PlainPanel panelColor="#1e3d7b" headingColor="#ff99ff" />, document.getElementById('plainpanel2'));
-ReactDOM.render(<LittleBox panelColor='white' headingColor="#0099ff" title="new visitors" subtitle="7k" />, document.getElementById('littlebox1'));
-ReactDOM.render(<LittleBox panelColor='white' headingColor="#bf80ff" title="happy campers" subtitle="30" />, document.getElementById('littlebox2'));
-ReactDOM.render(<LittleBox panelColor='white' headingColor="#cc3300" title="soup for dinner" subtitle="hmm, ok" />, document.getElementById('littlebox3'));
+ReactDOM.render(<Fullpanel text="Zeyah is the best massage therapist and yoga instructor ever!" img='../assets/logo.png' />, document.getElementById('panel1'));
+ReactDOM.render(<Smallbox headingColor='grey' panelColor='blue' text="Somatic Psychotherapy" img='../assets/watercolor-heart.png' />, document.getElementById('spbox'));
+ReactDOM.render(<Smallbox text="Massage" img='../assets/armstretch.png' />, document.getElementById('massagebox'));
+ReactDOM.render(<Smallbox text="Yoga" img='../assets/yogalegs.png' />, document.getElementById('yogabox'));

@@ -19693,146 +19693,99 @@ module.exports = require('./lib/React');
 },{"./lib/React":55}],168:[function(require,module,exports){
 var React = require('react');
 
-var LittleBox = React.createClass({
-  displayName: 'LittleBox',
+var Fullpanel = React.createClass({
+	displayName: 'Fullpanel',
 
-  render: function () {
+	render: function () {
 
-    var divStyle = {
-      color: 'white'
+		var divStyle = {
+			marginTop: 10,
+			color: 'white'
+		};
 
-    };
+		var imageStyle = {
+			width: 100,
+			marginRight: 10
+		};
 
-    var panelStyle = {
-      height: 90,
-      border: 5
-    };
-
-    var headingStyle = {
-      height: 90
-    };
-
-    if (this.props.headingColor) {
-      headingStyle.background = this.props.headingColor;
-      panelStyle.background = this.props.panelColor;
-    }
-
-    return React.createElement(
-      'div',
-      { style: divStyle, className: 'panel' },
-      React.createElement(
-        'div',
-        { style: headingStyle, className: 'panel-heading' },
-        this.props.title,
-        React.createElement(
-          'h2',
-          null,
-          ' ',
-          this.props.subtitle
-        )
-      ),
-      React.createElement('div', { style: panelStyle, className: 'panel-body' })
-    );
-  }
+		return React.createElement(
+			'div',
+			{ style: divStyle },
+			React.createElement(
+				'div',
+				{ className: 'row' },
+				React.createElement(
+					'div',
+					{ className: 'col-sm-3' },
+					React.createElement('img', { src: this.props.img, width: 160, height: 140, mode: 'fit' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'col-sm-9' },
+					this.props.text
+				)
+			)
+		);
+	}
 });
 
-module.exports = LittleBox;
+module.exports = Fullpanel;
 
 },{"react":167}],169:[function(require,module,exports){
 var React = require('react');
 
-var PlainPanel = React.createClass({
-  displayName: 'PlainPanel',
+var Smallbox = React.createClass({
+  displayName: 'Smallbox',
 
   render: function () {
 
     var divStyle = {
-      marginTop: 10,
       color: 'white'
 
     };
 
     var panelStyle = {};
 
-    var headingStyle = {
-      height: 200
+    var headingStyle = {};
+
+    var imageStyle = {
+      imageSize: 50
     };
 
     if (this.props.headingColor) {
       headingStyle.background = this.props.headingColor;
       panelStyle.background = this.props.panelColor;
     }
+
     return React.createElement(
       'div',
       { style: divStyle, className: 'panel' },
       React.createElement(
         'div',
         { style: headingStyle, className: 'panel-heading' },
-        this.props.title
+        React.createElement('img', { src: this.props.img, width: 330, height: 240, mode: 'fit' })
       ),
       React.createElement(
         'div',
         { style: panelStyle, className: 'panel-body' },
-        React.createElement(
-          'div',
-          { className: 'col-sm-4' },
-          React.createElement(
-            'center',
-            null,
-            React.createElement(
-              'h3',
-              null,
-              '49'
-            ),
-            'Deaths'
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'col-sm-4' },
-          React.createElement(
-            'center',
-            null,
-            React.createElement(
-              'h3',
-              null,
-              '53'
-            ),
-            'Injured'
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'col-sm-4' },
-          React.createElement(
-            'center',
-            null,
-            React.createElement(
-              'h3',
-              null,
-              'Millions'
-            ),
-            'Shocked'
-          )
-        )
+        this.props.text
       )
     );
   }
 });
 
-module.exports = PlainPanel;
+module.exports = Smallbox;
 
 },{"react":167}],170:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var PlainPanel = require('./components/PlainPanel.jsx');
-var LittleBox = require('./components/LittleBox.jsx');
+var Fullpanel = require('./components/Fullpanel.jsx');
+var Smallbox = require('./components/Smallbox.jsx');
 
-ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', headingColor: '#0099ff' }), document.getElementById('plainpanel'));
-ReactDOM.render(React.createElement(PlainPanel, { panelColor: '#1e3d7b', headingColor: '#ff99ff' }), document.getElementById('plainpanel2'));
-ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#0099ff', title: 'new visitors', subtitle: '7k' }), document.getElementById('littlebox1'));
-ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#bf80ff', title: 'happy campers', subtitle: '30' }), document.getElementById('littlebox2'));
-ReactDOM.render(React.createElement(LittleBox, { panelColor: 'white', headingColor: '#cc3300', title: 'soup for dinner', subtitle: 'hmm, ok' }), document.getElementById('littlebox3'));
+ReactDOM.render(React.createElement(Fullpanel, { text: 'Zeyah is the best massage therapist and yoga instructor ever!', img: '../assets/logo.png' }), document.getElementById('panel1'));
+ReactDOM.render(React.createElement(Smallbox, { headingColor: 'grey', panelColor: 'blue', text: 'Somatic Psychotherapy', img: '../assets/watercolor-heart.png' }), document.getElementById('spbox'));
+ReactDOM.render(React.createElement(Smallbox, { text: 'Massage', img: '../assets/armstretch.png' }), document.getElementById('massagebox'));
+ReactDOM.render(React.createElement(Smallbox, { text: 'Yoga', img: '../assets/yogalegs.png' }), document.getElementById('yogabox'));
 
-},{"./components/LittleBox.jsx":168,"./components/PlainPanel.jsx":169,"react":167,"react-dom":29}]},{},[170]);
+},{"./components/Fullpanel.jsx":168,"./components/Smallbox.jsx":169,"react":167,"react-dom":29}]},{},[170]);

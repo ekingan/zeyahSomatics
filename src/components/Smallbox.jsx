@@ -1,20 +1,23 @@
 var React = require('react');
 
-var LittleBox = React.createClass({
-  render: function() {
+var Smallbox = React.createClass({
+	render: function() {
 
-  	var divStyle = {
+		var divStyle = {
       color: 'white'
 
     }
 
     var panelStyle = {
-      height: 90,
-      border: 5
+      
     }
 
     var headingStyle = {
-    	height: 90
+    	
+    }
+
+    var imageStyle = {
+    	imageSize: 50
     }
 
     if (this.props.headingColor) {
@@ -25,10 +28,10 @@ var LittleBox = React.createClass({
  return (
       <div style={divStyle} className='panel'>
         <div style={headingStyle} className='panel-heading'>
-        	{this.props.title}
-        	<h2> {this.props.subtitle}</h2>
+        	<img src={this.props.img} width={330} height={240} mode='fit'/> 
         </div>
-        <div style={panelStyle} className='panel-body'>	
+        <div style={panelStyle} className='panel-body'>
+        	{this.props.text}	
         </div>	
       </div>
      
@@ -37,4 +40,4 @@ var LittleBox = React.createClass({
 });
 
 
-module.exports = LittleBox;
+module.exports = Smallbox;
