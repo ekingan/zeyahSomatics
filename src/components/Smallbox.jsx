@@ -17,7 +17,7 @@ var Smallbox = React.createClass({
     }
 
     var imageStyle = {
-    	imageSize: 50
+    	
     }
 
     if (this.props.headingColor) {
@@ -28,7 +28,9 @@ var Smallbox = React.createClass({
  return (
       <div style={divStyle} className='panel'>
         <div style={headingStyle} className='panel-heading'>
-        	<img src={this.props.img} width={330} height={240} mode='fit'/> 
+        	<center>
+        		<img src={this.props.img} width={330} height={240} mode='fit'/> 
+        	</center>
         </div>
         <div style={panelStyle} className='panel-body'>
         	{this.props.text}	

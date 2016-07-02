@@ -19734,6 +19734,57 @@ module.exports = Fullpanel;
 },{"react":167}],169:[function(require,module,exports){
 var React = require('react');
 
+var ImageBox = React.createClass({
+	displayName: 'ImageBox',
+
+	render: function () {
+
+		var divStyle = {
+			marginTop: 10,
+			color: 'white'
+		};
+
+		var imageStyle = {
+			width: 100,
+			marginRight: 10
+		};
+
+		return React.createElement(
+			'div',
+			{ style: divStyle },
+			React.createElement('img', { src: this.props.img, width: this.props.width, height: this.props.height, mode: 'fit' })
+		);
+	}
+});
+
+module.exports = ImageBox;
+
+},{"react":167}],170:[function(require,module,exports){
+var React = require('react');
+
+var SimpleTextBox = React.createClass({
+	displayName: 'SimpleTextBox',
+
+	render: function () {
+
+		var divStyle = {
+			marginTop: 10,
+			color: 'grey'
+		};
+
+		return React.createElement(
+			'div',
+			{ style: divStyle },
+			this.props.text
+		);
+	}
+});
+
+module.exports = SimpleTextBox;
+
+},{"react":167}],171:[function(require,module,exports){
+var React = require('react');
+
 var Smallbox = React.createClass({
   displayName: 'Smallbox',
 
@@ -19748,9 +19799,7 @@ var Smallbox = React.createClass({
 
     var headingStyle = {};
 
-    var imageStyle = {
-      imageSize: 50
-    };
+    var imageStyle = {};
 
     if (this.props.headingColor) {
       headingStyle.background = this.props.headingColor;
@@ -19763,7 +19812,11 @@ var Smallbox = React.createClass({
       React.createElement(
         'div',
         { style: headingStyle, className: 'panel-heading' },
-        React.createElement('img', { src: this.props.img, width: 330, height: 240, mode: 'fit' })
+        React.createElement(
+          'center',
+          null,
+          React.createElement('img', { src: this.props.img, width: 330, height: 240, mode: 'fit' })
+        )
       ),
       React.createElement(
         'div',
@@ -19776,16 +19829,19 @@ var Smallbox = React.createClass({
 
 module.exports = Smallbox;
 
-},{"react":167}],170:[function(require,module,exports){
+},{"react":167}],172:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 
 var Fullpanel = require('./components/Fullpanel.jsx');
 var Smallbox = require('./components/Smallbox.jsx');
+var ImageBox = require('./components/ImageBox.jsx');
+var SimpleTextBox = require('./components/SimpleTextBox.jsx');
 
-ReactDOM.render(React.createElement(Fullpanel, { text: 'Zeyah is the best massage therapist and yoga instructor ever!', img: '../assets/logo.png' }), document.getElementById('panel1'));
-ReactDOM.render(React.createElement(Smallbox, { headingColor: 'grey', panelColor: 'blue', text: 'Somatic Psychotherapy', img: '../assets/watercolor-heart.png' }), document.getElementById('spbox'));
+ReactDOM.render(React.createElement(SimpleTextBox, { text: 'Zeyah is the best massage therapist and yoga instructor ever!' }), document.getElementById('intro'));
+ReactDOM.render(React.createElement(Smallbox, { text: 'Somatic Psychotherapy', img: '../assets/watercolor-heart.png' }), document.getElementById('spbox'));
 ReactDOM.render(React.createElement(Smallbox, { text: 'Massage', img: '../assets/armstretch.png' }), document.getElementById('massagebox'));
 ReactDOM.render(React.createElement(Smallbox, { text: 'Yoga', img: '../assets/yogalegs.png' }), document.getElementById('yogabox'));
+ReactDOM.render(React.createElement(ImageBox, { img: '../assets/logo.png', width: '200', height: '180' }), document.getElementById('logo'));
 
-},{"./components/Fullpanel.jsx":168,"./components/Smallbox.jsx":169,"react":167,"react-dom":29}]},{},[170]);
+},{"./components/Fullpanel.jsx":168,"./components/ImageBox.jsx":169,"./components/SimpleTextBox.jsx":170,"./components/Smallbox.jsx":171,"react":167,"react-dom":29}]},{},[172]);
