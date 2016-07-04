@@ -5,7 +5,7 @@ var SimpleTextBox = React.createClass({
 
 		var divStyle = {
 			marginTop: 10,
-			color: 'grey'
+			color: '#1a1a00'
 		}
 
 
