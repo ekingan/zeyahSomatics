@@ -9,11 +9,11 @@ var Smallbox = React.createClass({
     }
 
     var panelStyle = {
-      
+      color: 'grey'
     }
 
     var headingStyle = {
-    	
+    	color: 'grey'
     }
 
     var imageStyle = {
@@ -29,6 +29,7 @@ var Smallbox = React.createClass({
       <div style={divStyle} className='panel'>
         <div style={headingStyle} className='panel-heading'>
         	<center>
+        		<h2> {this.props.title} </h2>
         		<img src={this.props.img} width={330} height={240} mode='fit'/> 
         	</center>
         </div>

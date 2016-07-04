@@ -4,13 +4,11 @@ var ImageBox = React.createClass({
 	render: function() {
 
 		var divStyle = {
-			marginTop: 10,
-			color: 'white'
+			padding: 20
 		}
 
 		var imageStyle = {
-    	width: 100, 
-    	marginRight: 10
+    	width: 100
 		}
 
 		return (

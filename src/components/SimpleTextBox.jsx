@@ -10,7 +10,8 @@ var SimpleTextBox = React.createClass({
 
 
 		return (
-			<div style={divStyle}>
+			<div style={divStyle} className='panel'>
+				<strong>{this.props.boldText}</strong>
 				{this.props.text}
 			</div>
 
